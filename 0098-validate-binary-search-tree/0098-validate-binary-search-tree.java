@@ -39,9 +39,6 @@ class Solution {
         return left&&right;
     }
     public boolean isValidBST(TreeNode root) {
-        if(root.left==null&&root.right==null){
-            return true;
-        }
         long posInf = Long.MAX_VALUE;
         long negInf = Long.MIN_VALUE;
         return helper(root, negInf, posInf);
