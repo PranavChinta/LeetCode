@@ -13,27 +13,26 @@ class Solution:
         return count
 
     def compress(self, chars: List[str]) -> int:
-        s = ""
         i = 0
+        write = 0
         while i < len(chars):
             string = chars[i]
             num = self.consecutiveLength(string, i, chars) #check num digits
             if(num == 1):
-                s += string
+                chars[write] = string
+                write += 1
             else:
-                s += string
+                chars[write] = string
+                write += 1
                 stringNum = str(num)
                 for j in range(len(stringNum)):
                     char = stringNum[j]
-                    s += char
+                    chars[write] = char
+                    write += 1
                 i += (num-1)
             i += 1
-        
-        chars.clear()
-        for char in s:
-            chars.append(char)
 
-        return len(s)
+        return write
                 
         
 
